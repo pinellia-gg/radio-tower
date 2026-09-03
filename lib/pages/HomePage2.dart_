@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+
+class HomePage2 extends StatelessWidget {
+  const HomePage2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return _HomePageView();
+  }
+}
+
+class _HomePageView extends Column {
+  var folderPath = "";
+  var clickCount = 0;
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    var childs = Column();
+    var firstRow = Row();
+    var pathTextField = TextField(
+        autofillHints: {"输入文件夹路径"},
+        onChanged: (text) {
+          folderPath = text;
+        });
+
+    firstRow.children.add(Column(children: [Text("路径")]));
+    firstRow.children.add(Column(children: [pathTextField]));
+
+    firstRow.children.add(
+      Column(
+        children: [
+          ElevatedButton(onPressed: onScanPressed, child: Text("开始扫描")),
+        ],
+      ),
+    );
+
+    childs.children.add(firstRow);
+    children.add(firstRow);
+
+    return this;
+  }
+
+  void onScanPressed() {
+    _controller.text = "点击次数为${++clickCount}";
+  }
+}

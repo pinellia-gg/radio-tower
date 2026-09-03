@@ -1,0 +1,375 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:7436822321649150065",
+      "lastPropertyId": "39:224289506774434706",
+      "name": "RadioStation",
+      "properties": [
+        {
+          "id": "1:7055442352269179791",
+          "name": "changeuuid",
+          "type": 9
+        },
+        {
+          "id": "2:8528542704857721285",
+          "name": "stationuuid",
+          "indexId": "1:5620722255460710101",
+          "type": 9,
+          "flags": 2048
+        },
+        {
+          "id": "3:7645634282218627524",
+          "name": "name",
+          "indexId": "2:211675961739616933",
+          "type": 9,
+          "flags": 2048
+        },
+        {
+          "id": "4:5388273908987723261",
+          "name": "url",
+          "type": 9
+        },
+        {
+          "id": "5:6758932614398533015",
+          "name": "url_resolved",
+          "type": 9
+        },
+        {
+          "id": "6:8245103413055209371",
+          "name": "homepage",
+          "type": 9
+        },
+        {
+          "id": "7:2692280757466136166",
+          "name": "favicon",
+          "type": 9
+        },
+        {
+          "id": "8:2506170921581120088",
+          "name": "tags",
+          "indexId": "3:7367851466417220482",
+          "type": 9,
+          "flags": 2048
+        },
+        {
+          "id": "9:4195561971443945401",
+          "name": "country",
+          "indexId": "4:3304904983427098139",
+          "type": 9,
+          "flags": 2048
+        },
+        {
+          "id": "10:2170736479540221164",
+          "name": "countrycode",
+          "indexId": "5:1253554855620850168",
+          "type": 9,
+          "flags": 2048
+        },
+        {
+          "id": "11:7038970495037133022",
+          "name": "state",
+          "type": 9
+        },
+        {
+          "id": "12:6231387693583788383",
+          "name": "language",
+          "indexId": "6:3522972591340074282",
+          "type": 9,
+          "flags": 2048
+        },
+        {
+          "id": "13:6914396567472035929",
+          "name": "languagecodes",
+          "type": 9
+        },
+        {
+          "id": "14:6797727692949477733",
+          "name": "votes",
+          "type": 6
+        },
+        {
+          "id": "15:1544412373542852636",
+          "name": "lastchangetime",
+          "type": 10
+        },
+        {
+          "id": "16:6801721406607847288",
+          "name": "lastchangetime_iso8601",
+          "type": 10
+        },
+        {
+          "id": "17:4604366046485410454",
+          "name": "codec",
+          "type": 9
+        },
+        {
+          "id": "18:5673508010651663359",
+          "name": "bitrate",
+          "type": 6
+        },
+        {
+          "id": "19:5372820193510985276",
+          "name": "hls",
+          "type": 1
+        },
+        {
+          "id": "20:8378882078187914987",
+          "name": "lastcheckok",
+          "type": 1
+        },
+        {
+          "id": "21:3737386988551192016",
+          "name": "lastchecktime",
+          "type": 10
+        },
+        {
+          "id": "22:5210159892888898947",
+          "name": "lastchecktime_iso8601",
+          "type": 10
+        },
+        {
+          "id": "23:1702370152543036120",
+          "name": "lastcheckoktime",
+          "type": 10
+        },
+        {
+          "id": "24:6299770043039354009",
+          "name": "lastcheckoktime_iso8601",
+          "type": 10
+        },
+        {
+          "id": "25:158186083144508268",
+          "name": "lastlocalchecktime",
+          "type": 10
+        },
+        {
+          "id": "26:393528524449144912",
+          "name": "lastlocalchecktime_iso8601",
+          "type": 10
+        },
+        {
+          "id": "27:6480030708110486756",
+          "name": "clicktimestamp",
+          "type": 10
+        },
+        {
+          "id": "28:1587718460057029785",
+          "name": "clicktimestamp_iso8601",
+          "type": 10
+        },
+        {
+          "id": "29:5437859335951710015",
+          "name": "clickcount",
+          "type": 6
+        },
+        {
+          "id": "30:201768353899556053",
+          "name": "clicktrend",
+          "type": 6
+        },
+        {
+          "id": "31:75124014264236609",
+          "name": "ssl_error",
+          "type": 6
+        },
+        {
+          "id": "32:8448995127978754653",
+          "name": "geo_lat",
+          "type": 8
+        },
+        {
+          "id": "33:4561516836486327785",
+          "name": "geo_long",
+          "type": 8
+        },
+        {
+          "id": "34:7232268806701058316",
+          "name": "has_extended_info",
+          "type": 1
+        },
+        {
+          "id": "35:7876709965945515235",
+          "name": "started",
+          "type": 1
+        },
+        {
+          "id": "36:5774964569403398422",
+          "name": "ID",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "37:2062513243964066154",
+          "name": "isActive",
+          "indexId": "12:5649675021521522315",
+          "type": 1,
+          "flags": 8
+        },
+        {
+          "id": "38:8292675629381617205",
+          "name": "lastSeenFullSyncGeneration",
+          "indexId": "13:675024718858711640",
+          "type": 6,
+          "flags": 8
+        },
+        {
+          "id": "39:224289506774434706",
+          "name": "syncStateInitialized",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:2214360542772020583",
+      "lastPropertyId": "5:3363504792832135934",
+      "name": "FavoriteList",
+      "properties": [
+        {
+          "id": "1:8028293493521419087",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1459485673477153412",
+          "name": "name",
+          "indexId": "7:5442191561095652699",
+          "type": 9,
+          "flags": 2048
+        },
+        {
+          "id": "3:1905711520848489789",
+          "name": "isDefault",
+          "indexId": "8:7069371790204048819",
+          "type": 1,
+          "flags": 8
+        },
+        {
+          "id": "4:1424440258622539855",
+          "name": "createdAt",
+          "type": 6
+        },
+        {
+          "id": "5:3363504792832135934",
+          "name": "updatedAt",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:1611906370417289392",
+      "lastPropertyId": "22:3141465461916554209",
+      "name": "FavoriteStation",
+      "properties": [
+        {
+          "id": "1:6452468973775345633",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1243634532110929198",
+          "name": "listId",
+          "indexId": "9:1205533648861828498",
+          "type": 6,
+          "flags": 8
+        },
+        {
+          "id": "3:2450231339943972769",
+          "name": "stationuuid",
+          "indexId": "10:861384734453989807",
+          "type": 9,
+          "flags": 2048
+        },
+        {
+          "id": "20:7113638916684035402",
+          "name": "createdAt",
+          "type": 6
+        },
+        {
+          "id": "21:4279314872788968489",
+          "name": "updatedAt",
+          "type": 6
+        },
+        {
+          "id": "22:3141465461916554209",
+          "name": "stationId",
+          "indexId": "11:1493285678863215958",
+          "type": 11,
+          "flags": 520,
+          "relationTarget": "RadioStation"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:7344015527001917086",
+      "lastPropertyId": "4:2872146127145242194",
+      "name": "RecentPlay",
+      "properties": [
+        {
+          "id": "1:4729350913541972653",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6498781372619669201",
+          "name": "stationuuid",
+          "indexId": "14:935126559488356952",
+          "type": 9,
+          "flags": 2048
+        },
+        {
+          "id": "3:4368189583747899021",
+          "name": "playedAt",
+          "indexId": "15:478581687753755667",
+          "type": 6,
+          "flags": 8
+        },
+        {
+          "id": "4:2872146127145242194",
+          "name": "stationId",
+          "indexId": "16:143291213915090722",
+          "type": 11,
+          "flags": 520,
+          "relationTarget": "RadioStation"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "4:7344015527001917086",
+  "lastIndexId": "16:143291213915090722",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    4077452207422917505,
+    5935419198783768796,
+    8280794123652600858,
+    6054165979365884000,
+    8729082814190750373,
+    9123508400094236413,
+    9048238777620518908,
+    721762467889299945,
+    6079243632105238459,
+    7601727081102489417,
+    5374139033089193640,
+    1139687094527057731,
+    3871618050026887941,
+    5174967138384079818,
+    7573191138188292295,
+    2193726459788517408
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}
