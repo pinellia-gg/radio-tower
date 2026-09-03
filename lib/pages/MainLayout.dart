@@ -136,7 +136,7 @@ class _MainLayoutState extends State<MainLayout> {
         children: [
           // 左侧导航栏
           Container(
-            width: 60,
+            width: 70,
             color: Theme.of(context).colorScheme.surface,
             child: Column(
               children: [

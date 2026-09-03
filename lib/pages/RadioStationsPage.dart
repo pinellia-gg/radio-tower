@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:lib_common/log/Logger.dart';
 import 'package:provider/provider.dart';
 import 'package:radio_tower/manger/ConfigKeys.dart';
@@ -107,9 +108,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
               children: [
                 Text(
                   l10n.filter,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
                 ),
                 const Spacer(),
                 PopupMenuButton<StationSort>(
@@ -118,35 +117,16 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
                   onSelected: _updateStationSort,
                   itemBuilder:
                       (context) => [
-                        PopupMenuItem(
-                          value: StationSort.name,
-                          child: Text(l10n.sortByName),
-                        ),
-                        PopupMenuItem(
-                          value: StationSort.popularity,
-                          child: Text(l10n.sortByPopularity),
-                        ),
-                        PopupMenuItem(
-                          value: StationSort.votes,
-                          child: Text(l10n.sortByVotes),
-                        ),
-                        PopupMenuItem(
-                          value: StationSort.clickTrend,
-                          child: Text(l10n.sortByClickTrend),
-                        ),
+                        PopupMenuItem(value: StationSort.name, child: Text(l10n.sortByName)),
+                        PopupMenuItem(value: StationSort.popularity, child: Text(l10n.sortByPopularity)),
+                        PopupMenuItem(value: StationSort.votes, child: Text(l10n.sortByVotes)),
+                        PopupMenuItem(value: StationSort.clickTrend, child: Text(l10n.sortByClickTrend)),
                       ],
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 4,
-                      vertical: 8,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(Icons.sort, size: 18),
-                        const SizedBox(width: 4),
-                        Text(l10n.sort),
-                      ],
+                      children: [const Icon(Icons.sort, size: 18), const SizedBox(width: 4), Text(l10n.sort)],
                     ),
                   ),
                 ),
@@ -160,12 +140,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
               icon: Icons.public,
               label: l10n.country,
               value: _filterCountry.isEmpty ? l10n.all : _filterCountry,
-              onPressed:
-                  () => showSearchDialog(
-                    l10n.selectCountry,
-                    _countryList,
-                    SEARCH_TYPE_COUNTRY,
-                  ),
+              onPressed: () => showSearchDialog(l10n.selectCountry, _countryList, SEARCH_TYPE_COUNTRY),
             ),
             const SizedBox(height: 10),
             _buildFilterButton(
@@ -173,12 +148,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
               icon: Icons.language,
               label: l10n.language,
               value: _filterLanguage.isEmpty ? l10n.all : _filterLanguage,
-              onPressed:
-                  () => showSearchDialog(
-                    l10n.selectLanguage,
-                    _languageList,
-                    SEARCH_TYPE_LANGUAGE,
-                  ),
+              onPressed: () => showSearchDialog(l10n.selectLanguage, _languageList, SEARCH_TYPE_LANGUAGE),
             ),
             const SizedBox(height: 10),
             _buildFilterButton(
@@ -186,12 +156,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
               icon: Icons.sell_outlined,
               label: l10n.tag,
               value: _filterTag.isEmpty ? l10n.all : _filterTag,
-              onPressed:
-                  () => showSearchDialog(
-                    l10n.selectTag,
-                    _tagList,
-                    SEARCH_TYPE_TAG,
-                  ),
+              onPressed: () => showSearchDialog(l10n.selectTag, _tagList, SEARCH_TYPE_TAG),
             ),
             const SizedBox(height: 12),
             Consumer<StationModel>(
@@ -268,10 +233,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
           children: [
             Icon(icon, size: 20),
             const SizedBox(width: 10),
-            SizedBox(
-              width: 38,
-              child: Text(label, overflow: TextOverflow.ellipsis),
-            ),
+            Text(label, overflow: TextOverflow.ellipsis),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
@@ -329,10 +291,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
   }
 
   void _onStationListScrolled() {
-    if (!_stationListController.hasClients ||
-        _isLoadingFirstPage ||
-        _isLoadingMoreStations ||
-        !_hasMoreStations) {
+    if (!_stationListController.hasClients || _isLoadingFirstPage || _isLoadingMoreStations || !_hasMoreStations) {
       return;
     }
 
@@ -351,18 +310,9 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
       return;
     }
 
-    String filterCountry = ConfigMgr().getStringVal(
-      ConfigKeys.KEY_LAST_SEL_COUNTRY,
-      "",
-    );
-    String filterLanguage = ConfigMgr().getStringVal(
-      ConfigKeys.KEY_LAST_SEL_LANG,
-      "",
-    );
-    String filterTag = ConfigMgr().getStringVal(
-      ConfigKeys.KEY_LAST_SEL_TAG,
-      "",
-    );
+    String filterCountry = ConfigMgr().getStringVal(ConfigKeys.KEY_LAST_SEL_COUNTRY, "");
+    String filterLanguage = ConfigMgr().getStringVal(ConfigKeys.KEY_LAST_SEL_LANG, "");
+    String filterTag = ConfigMgr().getStringVal(ConfigKeys.KEY_LAST_SEL_TAG, "");
     updateFilterUi(filterCountry, filterLanguage, filterTag);
     unawaited(_syncInBackground(stationModel));
   }
@@ -395,11 +345,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
     }
   }
 
-  void showSearchDialog(
-    String title,
-    List<String> arrays,
-    int searchType,
-  ) async {
+  void showSearchDialog(String title, List<String> arrays, int searchType) async {
     SearchResult? result = await showDialog<SearchResult>(
       context: context,
       builder: (BuildContext context) {
@@ -425,11 +371,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
     }
   }
 
-  void updateFilterUi(
-    String filterCountry,
-    String filterLang,
-    String filterTag,
-  ) {
+  void updateFilterUi(String filterCountry, String filterLang, String filterTag) {
     Logger.dLog(
       _tag,
       "updateFilterUi filterCountry:$filterCountry, "
@@ -463,8 +405,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
         }
 
         final station = _stations[index];
-        final isPlaying =
-            _playerController.station?.stationuuid == station.stationuuid;
+        final isPlaying = _playerController.station?.stationuuid == station.stationuuid;
 
         return Card(
           margin: const EdgeInsets.symmetric(vertical: 4),
@@ -480,11 +421,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  StationFavicon(
-                    imageUrl: station.favicon,
-                    size: 40,
-                    fallbackIconSize: 24,
-                  ),
+                  StationFavicon(imageUrl: station.favicon, size: 40, fallbackIconSize: 24),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
@@ -506,10 +443,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
                             ),
                             if (station.bitrate > 0)
                               Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 6,
-                                  vertical: 2,
-                                ),
+                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                 margin: const EdgeInsets.only(left: 8),
                                 decoration: BoxDecoration(
                                   color: Colors.blue.withValues(alpha: 0.1),
@@ -517,30 +451,18 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
                                 ),
                                 child: Text(
                                   '${station.bitrate}kbps',
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.blue,
-                                  ),
+                                  style: const TextStyle(fontSize: 12, color: Colors.blue),
                                 ),
                               ),
                             if (station.hls)
                               Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 6,
-                                  vertical: 2,
-                                ),
+                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                 margin: const EdgeInsets.only(left: 4),
                                 decoration: BoxDecoration(
                                   color: Colors.orange.withValues(alpha: 0.1),
                                   borderRadius: BorderRadius.circular(4),
                                 ),
-                                child: const Text(
-                                  'HLS',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.orange,
-                                  ),
-                                ),
+                                child: const Text('HLS', style: TextStyle(fontSize: 12, color: Colors.orange)),
                               ),
                           ],
                         ),
@@ -549,10 +471,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
                             padding: const EdgeInsets.only(top: 6),
                             child: Text(
                               station.tags,
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.grey[600],
-                              ),
+                              style: TextStyle(fontSize: 13, color: Colors.grey[600]),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -566,17 +485,13 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
                       final isFavorite = favoriteModel.isInDefaultList(station);
                       final l10n = AppLocalizations.of(context)!;
                       return Tooltip(
-                        message:
-                            isFavorite ? l10n.favorited : l10n.addToFavorites,
+                        message: isFavorite ? l10n.favorited : l10n.addToFavorites,
                         child: IconButton(
                           onPressed: () {
                             showFavoriteListPicker(context, station);
                           },
-                          icon: Icon(
-                            isFavorite ? Icons.favorite : Icons.favorite_border,
-                          ),
-                          color:
-                              isFavorite ? Colors.redAccent : Colors.grey[500],
+                          icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+                          color: isFavorite ? Colors.redAccent : Colors.grey[500],
                         ),
                       );
                     },
@@ -609,8 +524,7 @@ class _RadioStationsViewState extends State<_RadioStationsView> {
   Future<void> updateStationDataView({required bool reset}) async {
     final queryVersion = reset ? ++_stationQueryVersion : _stationQueryVersion;
 
-    if (!reset &&
-        (_isLoadingFirstPage || _isLoadingMoreStations || !_hasMoreStations)) {
+    if (!reset && (_isLoadingFirstPage || _isLoadingMoreStations || !_hasMoreStations)) {
       return;
     }
 
