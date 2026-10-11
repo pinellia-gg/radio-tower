@@ -3,6 +3,8 @@
 
 [简体中文](docs/README.zh-CN.md)
 
+Windows | [Android](https://github.com/pinellia-gg/radio-tower-android)
+
 **Radio Tower** is an online radio player built with Flutter. On its first
 launch, it downloads the complete station catalog, which can take several
 minutes depending on your network connection.

@@ -1,8 +1,9 @@
 
+# Radio Tower
 
 [English](../README.md) 
 
-# Radio Tower
+Windows | [Android](https://github.com/pinellia-gg/radio-tower-android)
 
 **Radio Tower**是一款在线电台播放软件，基于flutter开发。首次启动时，会全量下载电台数据信息，可能会需要几分钟（取决于你的网络状况）。
 
